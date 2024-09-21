@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE checkstyle-metadata PUBLIC
+"-//eclipse-cs//DTD Check Metadata 1.1//EN"
+"http://eclipse-cs.sourceforge.net/dtds/checkstyle-metadata_1_1.dtd">
+<checkstyle-metadata>
+    <rule-group-metadata name="CheckStyleProject 1"  priority="1600">
+        <description>new description</description>
+        
+        <rule-metadata name="Expression count check" internal-name="ExpressionCount" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.ExpressionCountCheck" />
+            <description>Counts Expressions</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Halstead length check" internal-name="HalsteadLength" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.HalsteadLengthCheck" />
+            <description>Calculates the Halstead length of a program</description>
+        </rule-metadata>
+    </rule-group-metadata>
+</checkstyle-metadata>
