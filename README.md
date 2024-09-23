@@ -61,3 +61,7 @@ NUM_DOUBLE
 NUM_LONG
 LITERAL_THIS
 CLASS_DEF
+
+
+# Method Limit Check
+Checks if the number of method definitions in a class or interface exceeds a set limit. This is implemented by checking the number of METHOD_DEF tokens in the OBJBLOCK token of each CLASS_DEF and INTERFACE_DEF tokens.
