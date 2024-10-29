@@ -16,6 +16,11 @@
             <description>Calculates the Halstead length of a program</description>
         </rule-metadata>
         
+        <rule-metadata name="Number of operators check" internal-name="NumOperators" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.NumOperatorsCheck" />
+            <description>Counts number of operators in a program</description>
+        </rule-metadata>
+        
         <rule-metadata name="%MethodLimit.name" internal-name="MethodLimit" parent="TreeWalker">
             <alternative-name internal-name="MyPackage.MethodLimitCheck" />
             <description>%MethodLimit.desc</description>
