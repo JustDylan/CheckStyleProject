@@ -4,27 +4,14 @@ import com.puppycrawl.tools.checkstyle.api.*;
 public class NumOperatorsCheck extends AbstractCheck {
 	private int count = 0;
 
+	public int getCount()
+	{
+		return this.count;
+	}
+	
 	@Override
 	public int[] getAcceptableTokens() {
-		return new int[] {
-				// operators
-				TokenTypes.SEMI,
-				TokenTypes.OBJBLOCK,
-				TokenTypes.SLIST,
-				TokenTypes.TYPE,
-				TokenTypes.PARAMETERS,
-				TokenTypes.COMMA,
-				TokenTypes.ARRAY_DECLARATOR,
-				TokenTypes.INDEX_OP,
-				TokenTypes.LT,
-				TokenTypes.ASSIGN,
-				TokenTypes.MINUS,
-				TokenTypes.LE,
-				TokenTypes.POST_INC,
-				TokenTypes.LITERAL_RETURN,
-				TokenTypes.LITERAL_IF,
-				TokenTypes.LITERAL_FOR
-		};
+		return Globals.OPERATORS;
 	}
 
 	@Override

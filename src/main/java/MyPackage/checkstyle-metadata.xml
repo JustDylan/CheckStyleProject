@@ -21,6 +21,26 @@
             <description>Counts number of operators in a program</description>
         </rule-metadata>
         
+        <rule-metadata name="Halstead vocabulary check" internal-name="HalsteadVocabulary" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.HalsteadVocabularyCheck" />
+            <description>Counts unique number of operators and operands</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Halstead volume check" internal-name="HalsteadVolume" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.HalsteadVolumeCheck" />
+            <description>Computes Halstead Volume</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Halstead difficulty check" internal-name="HalsteadDifficulty" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.HalsteadDifficultyCheck" />
+            <description>Computes Halstead Difficulty</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Halstead effort check" internal-name="HalsteadEffort" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.HalsteadEffortCheck" />
+            <description>Computes halstead effort</description>
+        </rule-metadata>
+        
         <rule-metadata name="%MethodLimit.name" internal-name="MethodLimit" parent="TreeWalker">
             <alternative-name internal-name="MyPackage.MethodLimitCheck" />
             <description>%MethodLimit.desc</description>

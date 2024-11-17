@@ -23,25 +23,7 @@ public class NumOperatorsCheckTest {
 		NumOperatorsCheck check = new NumOperatorsCheck();
 		
 		// expected tokens
-		int[] expectedTokens = new int[] {
-				// operators
-				TokenTypes.SEMI,
-				TokenTypes.OBJBLOCK,
-				TokenTypes.SLIST,
-				TokenTypes.TYPE,
-				TokenTypes.PARAMETERS,
-				TokenTypes.COMMA,
-				TokenTypes.ARRAY_DECLARATOR,
-				TokenTypes.INDEX_OP,
-				TokenTypes.LT,
-				TokenTypes.ASSIGN,
-				TokenTypes.MINUS,
-				TokenTypes.LE,
-				TokenTypes.POST_INC,
-				TokenTypes.LITERAL_RETURN,
-				TokenTypes.LITERAL_IF,
-				TokenTypes.LITERAL_FOR
-		};
+		int[] expectedTokens = Globals.OPERATORS;
 		
 		assertArrayEquals(expectedTokens, check.getDefaultTokens());
 		assertArrayEquals(new int[0], check.getRequiredTokens());
@@ -57,7 +39,7 @@ public class NumOperatorsCheckTest {
 		
 		// operator count starts at 0 when no tokens are visited
 		check.beginTree(ast);
-		assertEquals(0, getPrivateField(check, "count"));
+		assertEquals(0, check.getCount());
 	}
 	
 	@Test
@@ -67,15 +49,20 @@ public class NumOperatorsCheckTest {
 		
 		DetailAST ast = mock(DetailAST.class);
 		
+		int count = check.getCount();
+		
+		// expected message
+		String msg = "Number of operators:" + count;
+		
 		// stub log method
-		doNothing().when(check).log(0, "Number of operators:0");
+		doNothing().when(check).log(anyInt(), anyString());
 		
 		doReturn(0).when(ast).getLineNo();
 		
 		check.finishTree(ast);
 		
 		// make sure the correct check result was logged
-		verify(check).log(0, "Number of operators:0");
+		verify(check).log(0, msg);
 	}
 	
 	@Test
@@ -85,22 +72,11 @@ public class NumOperatorsCheckTest {
 		
 		DetailAST ast = mock(DetailAST.class);
 		
-		int initialCount = getPrivateField(check, "count");
+		int initialCount = check.getCount();
 		
 		// make sure operator count is incremented at visit
 		check.visitToken(ast);
-		assertEquals(initialCount+1, getPrivateField(check, "count"));
+		assertEquals(initialCount+1, check.getCount());
 
 	}
-	
-	private static int getPrivateField(Object check, String fieldName) {
-        try {
-        	Field field = check.getClass().getDeclaredField(fieldName);
-            field.setAccessible(true);
-            return (int) field.get(check);
-        } catch (Exception e) {
-            fail("Error accessing field: " + e.getMessage());
-            return -1;
-        }
-    }
 }
