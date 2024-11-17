@@ -3,6 +3,11 @@ import com.puppycrawl.tools.checkstyle.api.*;
 
 public class HalsteadLengthCheck extends AbstractCheck {
 	private int count = 0;
+	
+	public int getCount()
+	{
+		return count;
+	}
 
 	@Override
 	public int[] getAcceptableTokens() {
