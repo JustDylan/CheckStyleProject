@@ -16,6 +16,14 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 		return uniqueOperands.size();
 	}
 	
+	// set operands to one to prevent divide by zero during testing
+	public void setOperandsOne()
+	{
+		uniqueOperands = new HashSet<String>();
+		uniqueOperands.add("operand");
+		operands = 1;
+	}
+	
 	public int getUniqueOperators()
 	{
 		return uniqueOperators.size();
@@ -52,7 +60,11 @@ public class HalsteadDifficultyCheck extends AbstractCheck {
 	@Override
 	public void finishTree(DetailAST rootAst)
 	{
-		double difficulty = uniqueOperators.size()/2 * operands/uniqueOperands.size();
+		// difficulty is zero when there are no operands
+		double difficulty = 0;
+		if(uniqueOperands.size() != 0)
+			difficulty = uniqueOperators.size()/2 * operands/uniqueOperands.size();
+		
 		log(rootAst.getLineNo(), "Halstead Difficulty:" + difficulty);
 	}
 
