@@ -1,67 +1,56 @@
 # CheckStyleProject
-# Expression Number Check
+### Operator tokens used in checks:
+```
+SEMI, OBJBLOCK, SLIST, TYPE, PARAMETERS, COMMA, ARRAY_DECLARATOR, INDEX_OP, LT, ASSIGN, MINUS, LE, POST_INC, LITERAL_RETURN, LITERAL_IF, LITERAL_FOR, DO_WHILE, LITERAL_WHILE
+```
+
+### Operand tokens used in checks:
+```
+LABELED_STAT, VARIABLE_DEF, NUM_INT, EXPR, IDENT, FOR_CONDITION, FOR_ITERATOR, METHOD_REF, NUM_FLOAT, NUM_DOUBLE, NUM_LONG, LITERAL_THIS, CLASS_DEF
+```
+# Category A Checks
+
+### Halstead Length Check
+Checks the Halstead length of the program by counting total tokens that are considered Halstead operators or operands.
+Uses tokens from the operator and operand lists.
+
+### Halstead Vocabulary Check
+Computes the Halstead vocabulary of the program by counting the total number of unique operators and operands.
+Uses tokens from the operator and operand lists.
+
+### Halstead Volume Check
+Computes the Halstead volume of the program by multiplying the Halstead length by the log base 2 of the Halstead vocabulary of the program.
+Uses Tokens from the operator and operand lists.
+
+### Halstead Difficulty Check
+Computes the Halstead difficulty of the program by taking half of the unique operators and multiplying it by the total number of operands divided by the number of unique operands in the program.
+Uses tokens from the operator and operand lists.
+
+### Halsead Effort Check
+Computes the Halstead effort of the program by multiplying the Halstead difficulty by the Halstead volume of the program.
+Uses tokens from the operator and operand lists.
+
+# Category B Checks
+
+### Expression Number Check
 Counts the total number of expressions by counting EXPR tokens.
 
-# Halstead Length Check
-Checks the Halstead length of the program by counting total tokens that are considered Halstead operators or operands.
-Tokens considered as operators:
-ASSIGN
-ARRAY_INIT
-SEMI
-ARRAY_DECLARATOR
-TYPE
-LITERAL_NEW
-LITERAL_INT
-LITERAL_DOUBLE
-COMMA
-RBRACK
-RCURLY
-GENERIC_START
-GENERIC_END
-RPAREN
-LPAREN
-TYPE_ARGUMENTS
-MODIFIERS
-FOR_INIT
-DOT
-POST_INC
-SLIST
-LITERAL_ELSE
-LITERAL_IF
-LE
-LAND
-LAMBDA
-LITERAL_RETURN
-MINUS
-MINUS_ASSIGN
-MOD
-LT
-METHOD_CALL
-FINAL
-LITERAL_PUBLIC
-LITERAL_STATIC
-LITERAL_SWITCH
-DO_WHILE
-LITERAL_WHILE
-TYPECAST
-INC
-DEC
+### Comment Line Count Check
+Counts the total number of lines that contain comments in the program. Uses the COMMENT_CONTENT and BLOCK_COMMENT_BEGIN tokens.
 
-Tokens considered as operands:
-LABELED_STAT
-VARIABLE_DEF
-NUM_INT
-EXPR
-IDENT
-FOR_CONDITION
-FOR_ITERATOR
-METHOD_REF
-NUM_FLOAT
-NUM_DOUBLE
-NUM_LONG
-LITERAL_THIS
-CLASS_DEF
+### Looping Statement Count Check
+Counts the total number of looping statements present in the program. Uses the LITERAL_FOR, DO_WHILE, and LITERAL_WHILE tokens.
 
+### Comment Number Check
+Counts the total number of comments by counting COMMENT_CONTENT tokens.
 
-# Method Limit Check
+### Operand Number Check
+Counts the total number of operands by counting tokens in the operands list.
+
+### Operator Number Check
+Counts the total number of operators by counting tokens in the operators list.
+
+# Other Checks
+
+### Method Limit Check
 Checks if the number of method definitions in a class or interface exceeds a set limit. This is implemented by checking the number of METHOD_DEF tokens in the OBJBLOCK token of each CLASS_DEF and INTERFACE_DEF tokens.
