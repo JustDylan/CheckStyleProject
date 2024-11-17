@@ -17,6 +17,13 @@ public class HalsteadVolumeCheck extends AbstractCheck {
 	{
 		return length;
 	}
+	
+	// sets vocabulary to one to test other branches
+	public void setVocabularyOne()
+	{
+		vocabulary.add("token");
+		++length;
+	}
 
 	@Override
 	public int[] getAcceptableTokens() {
@@ -43,7 +50,11 @@ public class HalsteadVolumeCheck extends AbstractCheck {
 	@Override
 	public void finishTree(DetailAST rootAst)
 	{
-		double volume = length * Math.log(vocabulary.size())/Math.log(2);
+		// volume is 0 for empty vocabulary
+		double volume = 0;
+		if(vocabulary.size() != 0)
+			volume = length * Math.log(vocabulary.size())/Math.log(2);
+		
 		log(rootAst.getLineNo(), "Halstead Volume:" + volume);
 	}
 
