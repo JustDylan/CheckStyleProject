@@ -41,6 +41,26 @@
             <description>Computes halstead effort</description>
         </rule-metadata>
         
+        <rule-metadata name="Number of operands check" internal-name="NumOperands" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.NumOperandsCheck" />
+            <description>Counts total number of operands</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Looping statement count check" internal-name="LoopCount" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.LoopCountCheck" />
+            <description>Counts total number of looping statements</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Number of comments check" internal-name="NumComments" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.NumCommentsCheck" />
+            <description>Counts total number of comments</description>
+        </rule-metadata>
+        
+        <rule-metadata name="Comment line count check" internal-name="CommentLineCount" parent="TreeWalker">
+            <alternative-name internal-name="MyPackage.CommentLineCountCheck" />
+            <description>Counts number of lines with comments</description>
+        </rule-metadata>
+        
         <rule-metadata name="%MethodLimit.name" internal-name="MethodLimit" parent="TreeWalker">
             <alternative-name internal-name="MyPackage.MethodLimitCheck" />
             <description>%MethodLimit.desc</description>
