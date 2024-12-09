@@ -71,7 +71,7 @@ public class HalsteadEffortCheckTest {
 		// set operators to go down other branch
 		check.setOperandsOne();
 		doReturn(1).when(ast).getLineNo();
-		difficulty = check.getUniqueOperators()/2 * check.getOperands()/check.getUniqueOperands();
+		difficulty = check.getUniqueOperators()/2.0 * check.getOperands()/check.getUniqueOperands();
 		volume = (check.getOperands()+check.getOperators()) * Math.log(check.getUniqueOperands()+check.getUniqueOperators())/Math.log(2);
 		msg = "Halstead Effort:" + difficulty*volume;
 		

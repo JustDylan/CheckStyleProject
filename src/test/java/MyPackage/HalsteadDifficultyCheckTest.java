@@ -69,7 +69,7 @@ public class HalsteadDifficultyCheckTest {
 		// set operators to go down other branch
 		check.setOperandsOne();
 		doReturn(1).when(ast).getLineNo();
-		difficulty = check.getUniqueOperators()/2 * check.getOperands()/check.getUniqueOperands();
+		difficulty = check.getUniqueOperators()/2.0 * check.getOperands()/check.getUniqueOperands();
 		msg = "Halstead Difficulty:" + difficulty;
 		
 		check.finishTree(ast);
